@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebRTC</title>
+
+    <style type="text/css">
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+      }
+
+      .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+
+      .centered h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+
+      .centered label {
+        display: block;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+
+      .centered input[type="text"] {
+        width: 200px;
+        padding: 8px;
+        font-size: 1rem;
+      }
+
+      .centered button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .centered button:hover {
+        background-color: #0056b3;
+      }
+
+      #video-chat-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      #local-video,
+      #remote-video {
+        display: flex;
+        max-width: 40%;
+        max-height: 40%;
+        margin: 10px;
+        border: 2px solid #007bff;
+        border-radius: 5px;
+        background-color: #000;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="room-selection-container" class="centered">
+      <h1>WebRTC Video Conference</h1>
+      <label for="room-input">Enter the room number:</label>
+      <input id="room-input" type="text" />
+      <button id="connect-button">CONNECT</button>
+    </div>
+
+    <div id="video-chat-container" style="display: none">
+      <h2>Person 1</h2>
+      <video id="local-video" autoplay></video>
+      <h2>Person 2</h2>
+      <video id="remote-video" autoplay></video>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="client.js"></script>
+  </body>
+</html>
